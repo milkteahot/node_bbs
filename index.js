@@ -27,9 +27,11 @@ app.use(express.static(__dirname+"/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
+app.use("/posts", require("./routes/posts"));
 
 // Routes
 app.use("/", require("./routes/home"));
+
 
 // Port setting
 app.listen(3000, function(){
